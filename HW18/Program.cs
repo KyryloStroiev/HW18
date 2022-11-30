@@ -2,16 +2,13 @@
 
 using System.Reflection;
 
-Assembly assemblys = Assembly.LoadFrom("C:\\Users\\User\\Desktop\\HM\\HW18\\MyLibrary\\MyAssembly.cs");
+Assembly assemblys = Assembly.LoadFrom("MyAssembly.dll");
 Type t = assemblys.GetType("MyLibrary.MyAssembly");
 var metods = t.GetMethod("Metod", new Type[] {typeof(int), typeof(int)});
-if (metods != null)
-{
-    throw new Exception();
-}
+
 object[] constructorParameters = new object[2];
-constructorParameters[0] = 150;
-constructorParameters[1] = 5;
+constructorParameters[0] = 0;
+constructorParameters[1] = 0;
 
 var obj = Activator.CreateInstance(t, constructorParameters);
 
